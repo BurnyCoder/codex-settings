@@ -2,10 +2,13 @@
 
 This repo contains the public-safe parts of my Codex CLI configuration.
 
+The `codex/allow-all-rm-autonomy` branch is the fully permissive variant:
+it keeps autonomous execution enabled and does not block `rm`.
+
 Included:
 
 - `config.toml`: model, reasoning effort, approval policy, sandbox mode, and enabled features/plugins
-- `rules/default.rules`: custom command rules
+- `rules/default.rules`: custom command rules (empty on the permissive branch)
 
 Left out on purpose:
 
@@ -18,7 +21,7 @@ Left out on purpose:
 
 - `approval_policy = "never"`: commands do not require confirmation
 - `sandbox_mode = "danger-full-access"`: filesystem/network are not sandboxed
-- `rules/default.rules`: blocks direct `rm` usage, including `sudo rm`
+- `rules/default.rules`: intentionally empty on the permissive branch, so `rm` is allowed
 
 ## Reuse
 
