@@ -1,0 +1,43 @@
+# Block direct rm invocations, even when commands otherwise auto-run.
+prefix_rule(
+    pattern = ["rm"],
+    decision = "forbidden",
+    justification = "Do not use rm. Remove files manually after review or use a safer alternative.",
+    match = [
+        "rm file.txt",
+        "rm -rf build",
+    ],
+    not_match = [
+        "rmdir empty-dir",
+    ],
+)
+
+prefix_rule(
+    pattern = ["/bin/rm"],
+    decision = "forbidden",
+    justification = "Do not use rm. Remove files manually after review or use a safer alternative.",
+    match = [
+        "/bin/rm file.txt",
+        "/bin/rm -rf build",
+    ],
+)
+
+prefix_rule(
+    pattern = ["sudo", "rm"],
+    decision = "forbidden",
+    justification = "Do not use rm. Remove files manually after review or use a safer alternative.",
+    match = [
+        "sudo rm file.txt",
+        "sudo rm -rf build",
+    ],
+)
+
+prefix_rule(
+    pattern = ["sudo", "/bin/rm"],
+    decision = "forbidden",
+    justification = "Do not use rm. Remove files manually after review or use a safer alternative.",
+    match = [
+        "sudo /bin/rm file.txt",
+        "sudo /bin/rm -rf build",
+    ],
+)

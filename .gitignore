@@ -1,0 +1,10 @@
+auth.json
+history.jsonl
+log/
+sessions/
+shell_snapshots/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+cache/
+plugins/cache/
