@@ -4,6 +4,7 @@ approval_policy = "never"
 sandbox_mode = "danger-full-access"
 
 [features]
+js_repl = true
 multi_agent = true
 
 [plugins."github@openai-curated"]
